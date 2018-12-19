@@ -1,0 +1,15 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: echo Hello world!
+  displayName: 'Welcome to my world...'
+
+- script: echo I will only serve my master
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- script: echo Prepare the revolution
+  condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
