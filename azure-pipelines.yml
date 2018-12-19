@@ -1,5 +1,6 @@
 trigger:
 - master
+- pbi/*
 
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -15,6 +16,3 @@ steps:
 - script: echo Prepare the revolution
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: 'Revolution is coming'
-
-- script: echo Hello Andrii
-  displayName: 'Hi'
