@@ -10,6 +10,8 @@ steps:
 
 - script: echo I will only serve my master
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Serving the master'
 
 - script: echo Prepare the revolution
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Revolution is coming'
