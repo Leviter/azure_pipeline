@@ -16,3 +16,6 @@ steps:
 - script: echo Prepare the revolution
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: 'Revolution is coming'
+
+- script: echo Only on da branch yo!
+  displayName: 'Only on da branch yo!'
