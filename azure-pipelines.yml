@@ -5,6 +5,11 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
+pr:
+  branches:
+    include:
+    - master
+
 steps:
 - script: echo Hello world!
   displayName: 'Welcome to my world...'
@@ -19,3 +24,7 @@ steps:
 
 - script: echo Extra work for the master
   displayName: 'Gotta keep on working'
+
+- script: echo Run on PR
+  displayName: 'This task is only for a PR'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
